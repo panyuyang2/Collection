@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{margin:0px;    padding:0px;    overflow-x: hidden;}
+    #NBar{width: 100vw;    height: 10vh;}
+    #NBar div{float: right;    width: 5vw;    height: 10vh;    background-repeat: no-repeat;    background-position: center;    overflow: hidden;}
+    #NBar div:nth-child(1){background-image: url("../images/search.png");    margin-right:2vw;}
+    #NBar div:nth-child(2){background-image: url("../images/shop.png");}
+    #NBar a{float: right;    width: 5vw;    height: 10vh;    font-size:1.25em;    font-family: STFangsong;    font-weight: bold;    line-height: 10vh;    
+            text-align: center;    overflow: hidden;}
+    #NBar a:nth-child(3){float: left;    width: 20vw;    height: 10vh;    font-size:2.5em;    font-family:STKaiti;    font-weight: bold;    line-height: 10vh;    
+    margin-left: 4vw;    text-align: left;}
+    .tiaoZhuan:link,.tiaoZhuan:visited{color: black;   text-decoration: none;}
+    .tiaoZhuan:link:active,.tiaoZhuan:visited:active{color: black;   text-decoration: none;}
+    #block{position:absolute;    top:0px;    left: 0px;    width: 60vw;    height: 115vh;    background-color: rgba(0, 0, 0, 0.502);
+    display: none;}
+    #sArea{position:absolute;    top:0px;    left: 60vw;    width: 40vw;    height: 115vh;   background-color: white;   display: none;}
+    #top{width: 40vw;    height: 10vh;}
+    #top p:nth-child(1){float: left;    font-size: 2.1em;    font-family: FangSong;    margin-top:4vh;    margin-left: 2vw;    font-weight: bold;    
+        width: 20vw;    height: 10vh;}
+    #top p:nth-child(2){width: 3vw;    height: 6vh;    font-size: 2.1em;    font-family: FangSong;        float: right;    margin-top: 4vh;    
+    margin-right: 6vw;    font-weight: bold;}
+    #block{position:absolute;    top:0px;    left: 0px;    width: 60vw;    height: 115vh;    background-color: rgba(0, 0, 0, 0.502);
+    display: none;}
+    #sArea input[type=text]{width: 100vw;    height: 10vh;   border: 0.1vw solid rgb(191, 191, 191);    font-size: 2em;    color:rgb(191, 191, 191);}
+    #voice{width: 5vw;    height: 10vh;     background-image: url(images/voice.png);    background-size: contain;       background-repeat: no-repeat;    
+    margin-top: 56vh;   margin-left: 31vw;}
+    #show{width: 100vw;     height: 120vh;}
+    #sLeft{width: 45vw;     height: 147vh;   background-color: #f0f0f0;  float: left;}
+    #sRight{width: 55vw;    height: 147vh;   background-color: #f7f7ff;  float: left;}
+    #SPTP{width: 36vw;  height: 100vh;    margin-top: 10vh;    margin-left: 4.5vw;
+    background-image: url(../images/SPTP.png);  background-size: contain;       background-repeat: no-repeat;}
+    #SPBT{width: 55vw;  height: 9vh;}
+    #SPBT p{width: 49vw;  height: 9vh;     font-size: 2em;     font-family: Fangsong;  margin-top: 7vh;    margin-left: 3vw;}
+    #JG{width: 55vw;  height: 4vh;}
+    #JG p{width: 55vw;  height: 4vh;   font-size: 1.5em;     font-family: Fangsong;  margin-top: 0vh;    margin-left: 3vw;}
+    #PJ{width: 55vw;    height: 13vh;   background-image: url(../images/PJ.png);  background-size: contain;       background-repeat: no-repeat;
+    margin-top: 2vh;    margin-left: 3vw;}
+    #RZ{width: 55vw;    height: 3vh;   background-image: url(../images/RZ.png);  background-size: contain;       background-repeat: no-repeat;
+    margin-top: 4vh;    margin-left: 3vw;}
+    #XHX{width: 48vw;   height: 6vh;    border-bottom: 1px solid black;     margin-left: 3vw;}
+    .XM{width: 55vw;    height: 4vh;}
+    .XM p{width: 55vw;    height: 4vh;    font-size: 1.5em;     font-family: Fangsong;  margin-top: 0vh;    margin-left: 3vw;}
+    #sRight div:nth-child(6){margin-top: 3vh;}
+    .XMXX{width: 55vw;    height: 12vh;}
+    .NC{width: 9vw;    height: 8vh;    float: left;    border-radius: 90px;    font-size: 1.5em;     font-family: Fangsong;  
+    margin-top: 0vh;    margin-left: 6vw;}
+    #neicun button:nth-child(1){background-color: black;    color: white;}
+    .YP{width: 13vw;    height: 8vh;    float: left;    border-radius: 90px;    font-size: 1.5em;     font-family: Fangsong;  
+    margin-top: 0vh;    margin-left: 4vw;}
+    #YP button:nth-child(2){background-color: black;    color: white;}
+    .YS{width: 2vw;    height: 5vh;    float: left;  margin-top: 0vh;    margin-left: 1vw;}
+    #YS button:nth-child(1){margin-left: 4vw;   background-color: lightblue;        outline: 1vh solid black;}
+    #YS button:nth-child(2){background-color: black;}
+    #YS button:nth-child(3){background-color: darkgreen;}
+    #YS button:nth-child(4){background-color: darkblue;}
+    #YS button:nth-child(5){background-color: red;}
+    #YS button:nth-child(6){background-color: gray;}
+    .TC{width: 13vw;    height: 8vh;    float: left;    border-radius: 90px;    font-size: 1.5em;     font-family: Fangsong;  
+    margin-top: 0vh;    margin-left: 4vw;}
+    #TC button:nth-child(1){background-color: black;    color: white;}
+    #GMSL{width: 34vw;  height: 7vh;    background-image: url(../images/GMSL.png);  background-size: contain;       background-repeat: no-repeat;
+    margin-top: 4vh;    margin-left: 3vw;}
+    #QRGM{width: 34vw;  height: 7vh;    border-radius: 90px 0px 90px 90px;    font-size: 1.5em;     font-family: Fangsong;  color: white;  
+    margin-top: 2vh;    margin-left: 3vw;   background-color: black;}
+    #CN{width: 34vw;  height: 5vh;  margin-top: 2vh;    margin-left: 3vw;}
+    #CN p{width: 34vw;  height: 5vh;    font-size: 1.3em;     font-family: Fangsong;}
+    #CNS1{font-size: 1.4em;}
+    #CNS2{color: #ffc57f;}
+</style>
+<body>
+    <div id="search">
+        <div id="block"></div>
+        <div id="sArea">
+            <div id="top">
+                <p>搜索</p>
+                <p id="cross">×</p>
+            </div>
+            <form>
+                <input id="searchBar"  type="text" value="   输入商品名或店铺名">
+            </form>
+            <div id="voice"></div>    
+        </div>
+    </div>
+    <div id="NBar">
+        <div id="searchBtn"></div>
+        <div></div>
+        <a class="tiaoZhuan" href="../index.html">好物</a>
+        <a class="tiaoZhuan" href="login.html">登录</a>
+        <a>购物车</a>
+        <a>客服</a>
+        <a class="tiaoZhuan" href="select.html">分类</a>
+    </div>
+    <div id="show">
+        <div id="sLeft">
+            <div id="SPTP"></div>
+        </div>
+        <div id="sRight">
+            <div id="SPBT"><p>机械革命极光pro/z旷世G16/ 蛟龙16Pro/S
+                K 游戏本4060笔记本电脑</p></div>
+            <div id="JG"><p>￥4599.00-9909.00</p></div>
+            <div id="PJ"></div>
+            <div id="RZ"></div>
+            <div id="XHX"></div>
+            <div class="XM"><p>1.内存容量</p></div>
+            <div id="neicun" class="XMXX">
+                <button class="NC" value="16GB">16GB</button>
+                <button class="NC" value="32GB">32GB</button>
+                <button class="NC" value="64GB">64GB</button>
+            </div>
+            <div class="XM"><p>2.硬盘容量</p></div>
+            <div id="YP" class="XMXX">
+                <button class="YP" value="512GB固态硬盘">512GB固态硬盘</button>
+                <button class="YP" value="1T固态硬盘">1T固态硬盘</button>
+                <button class="YP" value="2T固态硬盘">2T固态硬盘</button>
+            </div>
+            <div class="XM"><p>3.颜色分类</p></div>
+            <div id="YS" class="XMXX">
+                <button class="YS" value="淡蓝"></button>
+                <button class="YS" value="黑色"></button>
+                <button class="YS" value="深绿"></button>
+                <button class="YS" value="深蓝"></button>
+                <button class="YS" value="深红"></button>
+                <button class="YS" value="灰色"></button>
+            </div>
+            <div class="XM"><p>4.套餐类型</p></div>
+            <div id="TC" class="XMXX">
+                <button class="TC" value="标准套餐">标准套餐</button>
+                <button class="TC" value="套餐1">套餐1</button>
+            </div>
+            <div class="XM"><p>5.购买数量</p></div>
+            <div id="GMSL"></div>
+            <button id="QRGM">确认购买</button>
+            <div id="CN"><p>承诺7天<span id="CNS1">无理由</span>退货和<span id="CNS2">运费险</span></p></div>
+        </div>
+    </div>
+</body>
+<script>
+    window.onload=function(){
+        var searchBtn=document.getElementById("searchBtn");
+        var block=document.getElementById("block");
+        var sArea=document.getElementById("sArea");
+        var cross=document.getElementById("cross");
+        var searchBar=document.getElementById("searchBar");
+        searchBtn.addEventListener("click",open);
+        block.addEventListener("click",close);
+        cross.addEventListener("click",close);
+        searchBar.addEventListener("click",starSearch);
+        function open(){
+            block.style.display="block";
+            sArea.style.display="block";
+        }
+        function close(){
+            block.style.display="none";
+            sArea.style.display="none";
+            searchBar.value="   输入商品名或店铺名";
+        }
+        function starSearch(){
+            if(this.value=="   输入商品名或店铺名"){
+                this.value="";
+            }
+        }
+
+        var neicun=document.getElementsByClassName("NC");
+        for(var i=0;i<3;i++){
+            neicun[i].addEventListener("click",choose);
+        }
+        var neicunXZ="16GB";
+        function choose(){
+            for(i=0;i<3;i++){
+                neicun[i].style.color="black";
+                neicun[i].style.backgroundColor="#f0f0f0";
+            }
+            this.style.color="white";
+            this.style.backgroundColor="black";
+            neicunXZ=this.value;
+        }
+        var yinpan=document.getElementsByClassName("YP");
+        for(i=0;i<3;i++){
+            yinpan[i].addEventListener("click",ypchoose);
+        }
+        var yinpanXZ="1T固态硬盘";
+        function ypchoose(){
+            for(i=0;i<3;i++){
+                yinpan[i].style.color="black";
+                yinpan[i].style.backgroundColor="#f0f0f0";
+            }
+            this.style.color="white";
+            this.style.backgroundColor="black";
+            yinpanXZ=this.value;
+        }
+        var yanse=document.getElementsByClassName("YS");
+        for(i=0;i<6;i++){
+            yanse[i].addEventListener("click",yschoose);
+        }
+        var yanseXZ="淡蓝";
+        function yschoose(){
+            for(i=0;i<6;i++){
+                yanse[i].style.outline="none";
+            }
+            this.style.outline="1vh solid black";
+            yanseXZ=this.value;
+        }
+        var taocan=document.getElementsByClassName("TC");
+        for(i=0;i<2;i++){
+            taocan[i].addEventListener("click",tcchoose);
+        }
+        var taocanXZ="标准套餐";
+        function tcchoose(){
+            for(i=0;i<2;i++){
+                taocan[i].style.color="black";
+                taocan[i].style.backgroundColor="#f0f0f0";
+            }
+            this.style.color="white";
+            this.style.backgroundColor="black";
+            taocanXZ=this.value;
+        }
+        var btn=document.getElementById("QRGM");
+        btn.addEventListener("click",jiesuan);
+        function jiesuan(){
+            alert("你选择了"+neicunXZ+"内存"+","+yinpanXZ+","+yanseXZ+"色"+","+taocanXZ+"共1份");
+        }
+    }
+</script>
+</html>

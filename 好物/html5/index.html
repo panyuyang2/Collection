@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{margin:0px;    padding:0px;    overflow-x: hidden;}
+    #NBar{width: 100vw;    height: 10vh;}
+    #NBar div{float: right;    width: 5vw;    height: 10vh;    background-repeat: no-repeat;    background-position: center;    overflow: hidden;}
+    #NBar div:nth-child(1){background-image: url("images/search.png");    margin-right:2vw;}
+    #NBar div:nth-child(2){background-image: url("images/shop.png");}
+    #NBar a{float: right;    width: 5vw;    height: 10vh;    font-size:1.25em;    font-family: STFangsong;    font-weight: bold;    line-height: 10vh;    
+            text-align: center;    overflow: hidden;}
+    #NBar a:nth-child(3){float: left;    width: 20vw;    height: 10vh;    font-size:2.5em;    font-family:STKaiti;    font-weight: bold;    line-height: 10vh;    
+    margin-left: 4vw;    text-align: left;}
+    .tiaoZhuan:link,.tiaoZhuan:visited{color: black;   text-decoration: none;}
+    .tiaoZhuan:link:active,.tiaoZhuan:visited:active{color: black;   text-decoration: none;}
+    #MPic{width: 100vw;    height: 105vh;     background-image: url(images/mPic.png);    background-size: cover;}
+    #Classes{width: 100vw;    height: 40vh;}
+    #Classes div{float: left;    width: 30vw;    height: 17vh;    margin-top: 23vh;    background-position: center;    background-repeat: no-repeat;    
+    overflow: hidden;}
+    #Classes div:nth-child(1){background-image: url(images/c1.png);    margin-left: 5vw;}
+    #Classes div:nth-child(2){background-image: url(images/c2.png);}
+    #Classes div:nth-child(3){background-image: url(images/c3.png);}
+    #goods{width: 100vw;    height: 100.1vh;    margin-top: 7vh;}
+    .Gtiaozhuan{width: 24.9vw;    height: 49.9vh;   float: left;}
+    .window{float: left;    width: 24.9vw;    height: 49.9vh;    border-top: 0.1vh solid black;    border-right: 0.1vw solid black;
+            overflow: hidden;}
+    .Gflow{width: 60vw; height: 50vh;}
+    #gHead{width: 24.9vw;    height: 49.9vh;    background-color: #ff6161;    border-top: 0.1vh solid #ff6161;    
+    border-right: 0.1vw solid #ff6161;}
+    .G{width: 25vw;    height: 50vh;    background-position: center;    background-size: contain;    background-repeat: no-repeat;}
+    #g1{background-image: url(images/book1.png);}
+    #g2{background-image: url(images/ring1.png);}
+    #g3{background-image: url(images/book2.png);}
+    #g4{background-image: url(images/ring2.png);}
+    #g5{background-image: url(images/book3.png);}
+    #g6{background-image: url(images/ring3.png);}
+    #g7{background-image: url(images/book4.png);}
+    #g8{background-image: url(images/ring4.png);}
+    #g9{background-image: url(images/book5.png);}
+    #g10{background-image: url(images/ring5.png);}
+    #g11{background-image: url(images/book6.png);}
+    #g12{background-image: url(images/ring6.png);}
+    #g13{background-image: url(images/book7.png);}
+    #g14{background-image: url(images/ring7.png);}
+    #goods div:nth-child(5){border-bottom: 0.1vh solid black;}
+    #goods div:nth-child(6){border-bottom: 0.1vh solid black;}
+    #goods div:nth-child(7){border-bottom: 0.1vh solid black;}
+    #goods div:nth-child(8){border-bottom: 0.1vh solid black;}
+    #gHead p:nth-child(1){width: 25vw;    height: 15vh;    font-size: 2.5em;    font-family: FangSong;    color:white;
+    margin-top: 13vh;    margin-left: 5vw;}
+    #gHead p:nth-child(2){width: 25vw;    height: 15vh;    font-size: 4em;    font-family: FangSong;    color:white;
+    margin-top: -12vh;    margin-left: 4vw;}
+    #gHead p:nth-child(3){width: 25vw;    height: 15vh;    font-size: 4em;    font-family: FangSong;    color:white;
+    margin-top: -12vh;    margin-left: 4vw;     position: absolute;     display: none;}
+    #block{position:absolute;    top:0px;    left: 0px;    width: 60vw;    height: 115vh;    background-color: rgba(0, 0, 0, 0.502);
+    display: none;}
+    #sArea{position:absolute;    top:0px;    left: 60vw;    width: 40vw;    height: 115vh;   background-color: white;   display: none;}
+    #top{width: 40vw;    height: 10vh;}
+    #top p:nth-child(1){float: left;    font-size: 2.1em;    font-family: FangSong;    margin-top:4vh;    margin-left: 2vw;    font-weight: bold;    
+        width: 20vw;    height: 10vh;}
+    #top p:nth-child(2){width: 3vw;    height: 6vh;    font-size: 2.1em;    font-family: FangSong;        float: right;    margin-top: 4vh;    
+    margin-right: 6vw;    font-weight: bold;}
+    #sArea input[type=text]{width: 100vw;    height: 10vh;   border: 0.1vw solid rgb(191, 191, 191);    font-size: 2em;    color:rgb(191, 191, 191);}
+    #voice{width: 5vw;    height: 10vh;     background-image: url(images/voice.png);    background-size: contain;       background-repeat: no-repeat;    
+    margin-top: 56vh;   margin-left: 31vw;}
+</style>
+<body>
+    <div id="NBar">
+        <div id="searchBtn"></div>
+        <div></div>
+        <a class="tiaoZhuan" href="#">好物</a>
+        <a class="tiaoZhuan" href="pages/login.html">登录</a>
+        <a>购物车</a>
+        <a>客服</a>
+        <a class="tiaoZhuan" href="pages/select.html">分类</a>
+    </div>
+    <div id="MPic"></div>
+    <div id="Classes">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div id="goods">
+            <div id="gHead" class="window">
+                <p>物 美</p>
+                <p>笔记本——</p>
+                <p>戒指——</p>
+            </div>
+            <div class="window">
+                <div class="Gflow">
+                    <a class="Gtiaozhuan" href="pages/buy.html"><div id="g1" class="G"></div></a>
+                    <a class="Gtiaozhuan" href="pages/buy.html"><div id="g2" class="G"></div></a>
+                </div>
+            </div>
+            <div class="window">
+                <div class="Gflow">
+                    <a class="Gtiaozhuan" href="pages/buy.html"><div id="g3" class="G"></div></a>
+                    <a class="Gtiaozhuan" href="pages/buy.html"><div id="g4" class="G"></div></a>
+                </div>
+            </div>
+            <div class="window">
+                <div class="Gflow">
+                    <a class="Gtiaozhuan" href="pages/buy.html"><div id="g5" class="G"></div></a>
+                    <a class="Gtiaozhuan" href="pages/buy.html"><div id="g6" class="G"></div></a>
+                </div>
+            </div>
+            <div class="window">
+                <div class="Gflow">
+                    <a class="Gtiaozhuan" href="pages/buy.html"><div id="g7" class="G"></div></a>
+                    <a class="Gtiaozhuan" href="pages/buy.html"><div id="g8" class="G"></div></a>
+                </div>
+            </div>
+            <div class="window">
+                <div class="Gflow">
+                    <a class="Gtiaozhuan" href="pages/buy.html"><div id="g9" class="G"></div></a>
+                    <a class="Gtiaozhuan" href="pages/buy.html"><div id="g10" class="G"></div></a>
+                </div>
+            </div>
+            <div class="window">
+                <div class="Gflow">
+                    <a class="Gtiaozhuan" href="pages/buy.html"><div id="g11" class="G"></div></a>
+                    <a class="Gtiaozhuan" href="pages/buy.html"><div id="g12" class="G"></div></a>
+                </div>
+            </div>
+            <div class="window">
+                <div class="Gflow">
+                    <a class="Gtiaozhuan" href="pages/buy.html"><div id="g13" class="G"></div></a>
+                    <a class="Gtiaozhuan" href="pages/buy.html"><div id="g14" class="G"></div></a>
+                </div>
+            </div>
+    </div>
+    <div id="search">
+        <div id="block"></div>
+        <div id="sArea">
+            <div id="top">
+                <p>搜索</p>
+                <p id="cross">×</p>
+            </div>
+            <form>
+                <input id="searchBar"  type="text" value="   输入商品名或店铺名">
+            </form>
+            <div id="voice"></div>    
+        </div>
+    </div>
+</body>
+<script>
+    var searchBtn=document.getElementById("searchBtn");
+    var block=document.getElementById("block");
+    var sArea=document.getElementById("sArea");
+    var cross=document.getElementById("cross");
+    var searchBar=document.getElementById("searchBar");
+    searchBtn.addEventListener("click",open);
+    block.addEventListener("click",close);
+    cross.addEventListener("click",close);
+    searchBar.addEventListener("focus",starSearch);
+    function open(){
+        block.style.display="block";
+        sArea.style.display="block";
+    }
+    function close(){
+        block.style.display="none";
+        sArea.style.display="none";
+        searchBar.value="   输入商品名或店铺名";
+    }
+    function starSearch(){
+        searchBar.style.color="black";
+        if(this.value=="   输入商品名或店铺名"){
+            this.value="";
+        }
+    }
+
+    var Gflow1=document.getElementsByClassName("Gflow")[0];
+    var left=0;
+    var target=-25;
+    var GLM=setInterval(function(){
+        left--;
+        Gflow1.style.marginLeft=left+"vw";
+        if(left==target){
+            clearInterval(GLM);
+            target=0;
+            setTimeout(function(){
+                var GRM=setInterval(function(){
+                    left++;
+                    Gflow1.style.marginLeft=left+"vw";
+                    if(left==target){
+                        clearInterval(GRM);
+                    }
+                },40);
+            },3000);
+        }    
+    },40); 
+    var Gmovie=setInterval(function(){
+        var left=0;
+        var target=-25;
+        var GLM=setInterval(function(){
+            left--;
+            Gflow1.style.marginLeft=left+"vw";
+            if(left==target){
+                clearInterval(GLM);
+                target=0;
+                setTimeout(function(){
+                    var GRM=setInterval(function(){
+                        left++;
+                        Gflow1.style.marginLeft=left+"vw";
+                        if(left==target){
+                            clearInterval(GRM);
+                        }
+                    },40);
+                },3000);
+            }    
+        },40);   
+    },8000);
+    var BJben=document.getElementById("gHead").getElementsByTagName("p")[1]
+    var jiezhi=document.getElementById("gHead").getElementsByTagName("p")[2]
+    setTimeout(function(){
+            BJben.style.display="none";
+            jiezhi.style.display="block";
+            setTimeout(function(){
+                BJben.style.display="block";
+                jiezhi.style.display="none";
+            },4000)
+    },1000)
+    var Hmovie=setInterval(function(){
+        setTimeout(function(){
+            BJben.style.display="none";
+            jiezhi.style.display="block";
+            setTimeout(function(){
+                BJben.style.display="block";
+                jiezhi.style.display="none";
+            },4000)
+        },1000)
+    },8000)
+</script>
+</html>

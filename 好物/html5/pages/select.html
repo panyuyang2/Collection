@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #block{position:absolute;    top:0px;    left: 0px;    width: 60vw;    height: 115vh;    background-color: rgba(0, 0, 0, 0.502);
+    display: none;}
+    #sArea{position:absolute;    top:0px;    left: 60vw;    width: 40vw;    height: 115vh;   background-color: white;   display: none;}
+    #top{width: 40vw;    height: 10vh;}
+    #top p:nth-child(1){float: left;    font-size: 2.1em;    font-family: FangSong;    margin-top:4vh;    margin-left: 2vw;    font-weight: bold;    
+        width: 20vw;    height: 10vh;}
+    #top p:nth-child(2){width: 3vw;    height: 6vh;    font-size: 2.1em;    font-family: FangSong;        float: right;    margin-top: 4vh;    
+    margin-right: 6vw;    font-weight: bold;}
+    #sArea input[type=text]{width: 100vw;    height: 10vh;   border: 0.1vw solid rgb(191, 191, 191);    font-size: 2em;    color:rgb(191, 191, 191);}
+    #voice{width: 5vw;    height: 10vh;     background-image: url(images/voice.png);    background-size: contain;       background-repeat: no-repeat;    
+    margin-top: 56vh;   margin-left: 31vw;}
+    body{margin:0px;    padding:0px;    overflow-x: hidden;     background-color: #f9f9f9;}
+    #NBar{width: 100vw;    height: 10vh;}
+    #NBar div{float: right;    width: 5vw;    height: 10vh;    background-repeat: no-repeat;    background-position: center;    overflow: hidden;}
+    #NBar div:nth-child(1){background-image: url("../images/search.png");    margin-right:2vw;}
+    #NBar div:nth-child(2){background-image: url("../images/shop.png");}
+    #NBar a{float: right;    width: 5vw;    height: 10vh;    font-size:1.25em;    font-family: STFangsong;    font-weight: bold;    line-height: 10vh;    
+            text-align: center;    overflow: hidden;}
+    #NBar a:nth-child(3){float: left;    width: 20vw;    height: 10vh;    font-size:2.5em;    font-family:STKaiti;    font-weight: bold;    line-height: 10vh;    
+    margin-left: 4vw;    text-align: left;}
+    #NBar a:nth-child(7){color: #ffc348;}
+    .tiaoZhuan:link,.tiaoZhuan:visited{color: black;   text-decoration: none;}
+    .tiaoZhuan:link:active,.tiaoZhuan:visited:active{color: black;   text-decoration: none;}
+    #select{width: 27vw;      height: 100vh;      float: left;    margin-left: 6vw;}
+    #goods{width: 59vw;      height: 100vh;      float: left;}
+    #select a{font-size: 1.2em;   font-family: STFangsong;      margin-top: 0vh;    float: left;}
+    #select form label{font-size: 1.3em;    font-family: STFangsong;    margin-left: 0.3vw;   font-weight: bold;}
+    #select form{font-size: 1.3em;    font-family: STFangsong;    margin-left: 1.3vw;   font-weight: bold;  margin-top: 4vh;}
+    #select form p{font-size: 1.5em;    font-family: STFangsong;    margin-left: 2.6vw;   font-weight: bold;  margin-top: -1vh;}
+    #price label{font-size: 1.6em;    font-family: STFangsong;    margin-left: 1.3vw;   font-weight: bold;}
+    #pPic{width: 11vw;  height: 9vh;   background-image: url(../images/price.png);     background-size: contain;       background-repeat: no-repeat;
+    margin-top: -3vh;}
+    #pPic input[type=text]{float: left;     width: 1.7vw;     height: 2.5vh;    text-align: center;     background-color: #f9f9f9;      margin-left: -1vw;
+    margin-top: 0.5vh;  border-color: #f9f9f9;  color: #f6d996;}
+    #pPic input[type=text]:nth-child(2){float: left;     width: 1.7vw;     height: 2.5vh;    text-align: center;     background-color: #f9f9f9;      
+    margin-left: 6vw;    margin-top: 0.5vh; border-color: #f9f9f9;}
+    #gLine{width: 59vw;     height: 4vh;   overflow: hidden;}
+    #gLine p{font-size: 1.3em;    font-family: STFangsong;      float: left;    margin-top: 0vh;    margin-left: 0vw;}
+    #gLine p:nth-child(3){margin-left: 1vw;}
+    #downMenu{float: right;     width: 14.5vw;    height: 5vh;    margin-top: 0vh;        margin-right: 0vw;      overflow: hidden;}
+    #downMenu:hover #dMMain{display: block;}
+    #downMenu p{font-size: 1.3em;    font-family: STFangsong;      float: right;    margin-top: 0vh;    margin-right: 0.2vw;}
+    #down{width: 2vw;   height: 3vh;    background-image: url(../images/down.png);  float: right;   margin-top: 0.4vh;    margin-right: 5.3vw;
+    background-size: contain;       background-repeat: no-repeat;   background-position: center;}
+    #gDown{width: 13.3vw;     height: 1vh;    background-image: url(../images/line.png);      margin-top: 8vh;    margin-left: 45vw;    
+    background-size: contain;       background-repeat: no-repeat;}
+    #gMain{width: 59vw;     height: 235vh;}
+    #gMain div{width: 59vw;     height: 235vh;      background-image: url(../images/goods.png);     background-size: contain;       background-repeat: no-repeat;}
+    #dMMain{position: absolute;     width: 14.5vw;      height: 10vh;      margin-top: 0vh;    margin-left: 0vw;    display: none;}
+    #dMMain button{width: 8vw;    height: 5vh;     border: 1px solid black;      font-family: STFangsong;   font-size: 1em;     font-weight: bold;}
+    #dMMain button:nth-child(1){background-color: lightgreen;}
+    @media screen and (max-width:783px){
+        #select{display: none;}
+        #goods{width: 100vw;}
+        #gLine{width: 100vw;}
+        #gMain{width: 100vw;}
+        #gMain div{width: 100vw;}
+        #gLine p{display: none;}
+        #downMenu p{display: block;}
+    }
+</style>
+<body>
+    <div id="search">
+        <div id="block"></div>
+        <div id="sArea">
+            <div id="top">
+                <p>搜索</p>
+                <p id="cross">×</p>
+            </div>
+            <form>
+                <input id="searchBar"  type="text" value="   输入商品名或店铺名">
+            </form>
+            <div id="voice"></div>    
+        </div>
+    </div>
+    <div id="NBar">
+        <div id="searchBtn"></div>
+        <div></div>
+        <a class="tiaoZhuan" href="../index.html">好物</a>
+        <a class="tiaoZhuan" href="login.html">登录</a>
+        <a>购物车</a>
+        <a>客服</a>
+        <a class="tiaoZhuan" href="select.html">分类</a>
+    </div>
+    <div id="main">
+        <div id="select">
+            <a class="tiaoZhuan" href="../index.html">主页</a>
+            <a class="tiaoZhuan" href="select.html">>分类</a>
+            <form>
+                <label>食品</label><br>
+                <input type="checkbox" value="1">零食大礼包<br>
+                <input type="checkbox" value="2">方便面<br>
+                <input type="checkbox" value="3">饼干<br>
+                <input type="checkbox" value="4">熟食<br>
+                <input type="checkbox" value="5">健康轻零食<br>
+                <p>......<p>
+            </form>
+            <form>
+                <label>服装</label><br>
+                <input type="checkbox" value="6">短外套<br>
+                <input type="checkbox" value="7">卫衣<br>
+                <input type="checkbox" value="8">T恤<br>
+                <input type="checkbox" value="9">羊绒衫<br>
+                <input type="checkbox" value="10">毛衣<br>
+                <p>......</p>
+            </form>
+            <form>
+                <label>饰品</label><br>
+                <input type="checkbox" value="11">项链<br>
+                <input id="ring" type="checkbox" value="12" checked>戒指<br>
+                <input type="checkbox" value="13">腕表<br>
+                <input type="checkbox" value="14">手串<br>
+                <input type="checkbox" value="15">棒球帽<br>
+                <p>......</p>
+            </form>
+            <div id="price">
+                <label>价格</label>
+            </div>
+            <div id="pPic">
+                <form>
+                    <input type="text"  value="0">
+                    <input type="text"  value="166...">
+                </form>
+            </div>
+            <form>
+                <label>图书</label><br>
+                <input type="checkbox" value="16">贴纸书<br>
+                <input type="checkbox" value="17">发声书<br>
+                <input type="checkbox" value="18">立体书<br>
+                <input type="checkbox" value="19">年级阅读<br>
+                <input type="checkbox" value="20">幼小衔接<br>
+                <p>......</p>
+            </form>
+            <form>
+                <label>数码</label><br>
+                <input type="checkbox" value="21">耳机<br>
+                <input type="checkbox" value="22">笔记本电脑<br>
+                <input type="checkbox" value="23">平板电脑<br>
+                <input type="checkbox" value="24">整箱一体机<br>
+                <input type="checkbox" value="25">游戏机<br>
+                <p>......</p>
+            </form>
+        </div>
+        <div id="goods">
+            <div id="gLine">
+                <p>饰品:</p>
+                <p>#戒指</p>
+                <p>找到了265件</p>
+                <div id="downMenu">
+                    <div id="down"></div>
+                    <p>按销量排序</p>
+                    <div id="dMMain">
+                        <button>按销量排序</button>
+                        <button>按综合排序</button>
+                        <button>按时间排序</button>
+                        <button>按信用排序</button>
+                    </div>
+                </div>
+            </div>
+            <div id="gDown"></div>
+            <a id="gMain" href="buy.html"><div></div></a>
+        </div>
+    </div>
+</body>
+<script>
+    var searchBtn=document.getElementById("searchBtn");
+    var block=document.getElementById("block");
+    var sArea=document.getElementById("sArea");
+    var cross=document.getElementById("cross");
+    var searchBar=document.getElementById("searchBar");
+    searchBtn.addEventListener("click",open);
+    block.addEventListener("click",close);
+    cross.addEventListener("click",close);
+    searchBar.addEventListener("click",starSearch);
+    function open(){
+        block.style.display="block";
+        sArea.style.display="block";
+    }
+    function close(){
+        block.style.display="none";
+        sArea.style.display="none";
+        searchBar.value="   输入商品名或店铺名";
+    }
+    function starSearch(){
+        if(this.value=="   输入商品名或店铺名"){
+            this.value="";
+        }
+    }
+
+
+
+    var ring=document.getElementById("ring");
+    var gMain=document.getElementById("gMain");
+    ring.addEventListener("change",show);
+    function show(){
+        if(ring.checked==true){
+            gMain.style.display="block";
+        }
+        else{
+            gMain.style.display="none";
+        }
+    }
+</script>
+</html>

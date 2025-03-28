@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{margin: 0px;  padding: 0px;}
+    #head{width: 100vw;    height: 5vh;   background-color: green;     list-style: none;}
+    #head li{float: left;     width: 7vw;   height: 5vh;    border-right: 1px solid white;}
+    #head li a{display:block;      font-size:1em;     color:white;    text-align: center;
+         line-height: 5vh;}
+    #search{display: none;  width: 100vw;  height: 13vh;  background-color: lightgray;  position: absolute;  left: 0;}
+    #head li:nth-child(7):hover #search{display: block;}
+    #search input[type=submit]{width: 14vw;  height: 7vh;  float: right;  background-color: lightgreen;  border: none;  font-size: 1.2em;  color:white;
+                   margin: 3vh 0vw;  margin-right: 7vw;  cursor: pointer;}
+    #search input[type=text]{width: 28vw;  height: 7vh;  float: right;  margin-top: 2.8vh;}
+    #head li:nth-child(6):hover #login{display: block;}
+    #login{width: 21vw;  height: 36vh;  position: absolute;  right: 7vw; display: none;}
+    #login div{width: 21vw;  height: 35vh;  margin-top: 1vh; background-color: lightgray;  border: 1px solid black;}
+    #login input[type=text],input[type=password]{width: 15vw;  height: 6vh;  margin:0.5vh 0vw;  margin-left: 3.5vw;}
+    #login input[type=submit]{width: 14vw;  height: 7vh;    margin:0.5vh 3.5vw;  background-color: green;  border: none;    color:white;
+                              cursor:pointer}
+    #navbar{width: 100vw;   height: 13vh;   background-color: white;    list-style: none;}
+    #navbar li{float: right;    width: 7vw;    height: 13vh;}
+    #navbar a{font-size: 1em;   color:black;    line-height: 13vh;}
+    #img{width: 100vw;      height: 55vh;       background-image: url("image/pic1.jpg");       background-size: cover;}
+    #img h1{font-size: 2.4em;    color:white;  text-align: center;     padding-top: 12vh;     font-weight: normal;}
+    #img p{font-size: 1.3em;    color:white;  text-align: center;     padding-top: 5vh;}
+    #menu{width: 100vw;     height: 25vh;}
+    #box{float: left;  width: 21.5vw;  height: 20vh;   background-color: lightgray;   margin:2.5vh 0.5vw;}
+    #icon{width: 6.5vw;  height: 13vh;   background-size: contain;  margin: 3.5vh 2vw;}
+    #box div{float: left;}
+    #box p{font-size: 1.4em;     color:black;   line-height: 20vh;  padding-left: 4vw;}
+    #footer{width: 100vw;  height: 2vh;  background-color: green;}
+</style>
+<body>
+        <ul id="head">
+            <li><a>社区</a></li>
+            <li><a>助手</a></li>
+            <li><a>动态</a></li>
+            <li style="border-right: none;"><a>云服务</a></li>
+            <li style="float: right;    border-right: none;     margin-right: 7vw;"><a>注册</a></li>
+            <li style="float: right;">
+                <a>登录</a>
+                <div id="login">
+                    <div>
+                        <form>
+                            <input type="text" placeholder="请输入用户名..." style="margin-top: 1.5vh;">
+                            <input type="password" placeholder="请输入密码...">
+                            <input type="submit" value="确 定">
+                            <input type="submit" value="重 置">
+                        </form>
+                    </div>
+                </div>
+            </li>
+            <li style="float: right;">
+                <a>搜索</a>
+                <div id="search">
+                    <form>
+                        <input type="submit" value="搜 索">
+                        <input type="text">
+                    </form>
+                </div>
+            </li>
+        </ul>
+        <ul id="navbar">
+            <li style="float: left;     margin-left: 7vw;"><a style="font-size: 4em;  color: darkgreen;   font-weight: bold;">Logo</a></li>
+            <li style="margin-right: 8vw;"><a>服务</a></li>
+            <li><a>体验店</a></li>
+            <li><a>在线商城</a></li>
+            <li><a>品牌</a></li>
+            <li><a>产品</a></li>
+            <li><a>首页</a></li>
+        </ul>
+        <div id="img">
+            <h1>发现生活的趣味与美好</h1>
+            <p>旅途中、生活中，手机帮助您记录一个个精彩画面。感谢您的分享，</br>在这里，您看到的都是手机拍摄的作品。</p>
+        </div>
+        <div id="menu">
+            <div id="box" style="margin-left: 5.5vw;     background-color: green;">
+                <div id="icon" style="background-image: url(image/p1.png);"></div>
+                <div><p style="color:white">社区</p></div>
+            </div>
+            <div id="box">
+                <div id="icon" style="background-image: url(image/p2.png);"></div>
+                <div><p>Color</p></div>
+            </div>
+            <div id="box" style="background-color: green;">
+                <div id="icon" style="background-image: url(image/p3.png);"></div>
+                <div><p style="color:white">软件商店</p></div></div>
+            <div id="box">
+                <div id="icon" style="background-image: url(image/p4.png);"></div>
+                <div><p>品牌中心</p></div>
+            </div>
+        </div>
+        <div id="footer"></div>
+</body>
+</html>

@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		body,div,a,ul,li{margin: 0px; padding: 0px; font-family: "微软雅黑"; font-size: 14px;}
+		#topLine{
+			width:100%;
+			height: 10px;
+			background-color: #21762B;
+		}
+		#banner{
+			width:100%;
+			height: 80px;
+			border-bottom: 1px solid #EFEFEF;
+		}
+		#banner div:nth-child(1){
+			font-size: 50px;
+			color:#21762B;
+			font-weight: 600;
+			font-family: "Verdana";
+			margin-left: 80px;
+			height: 80px;
+			line-height: 80px;
+			float: left;
+		}
+		#banner div:nth-child(2){
+			font-size: 20px;
+			margin-left: 200px;
+			margin-top: 25px;
+			font-weight: 600;
+			height: 30px;
+			line-height: 30px;
+			width:150px;
+			text-align: center;
+			float: left;
+			border-left: 1px solid #ccc;
+		}
+		#banner div:nth-child(3){
+			font-size: 16px;
+			margin-right: 50px;
+			margin-top: 30px;
+			height: 20px;
+			line-height: 20px;
+			width:100px;
+			text-align: center;
+			float: right;
+			border-left: 1px solid #ccc;
+		}
+
+		#container{
+			width:100%;
+			/*height: 500px;*/
+			min-height: 500px;
+			background-color: #F5F5F5;
+			margin:0px auto;
+		}
+		#container #progressLine{
+			width:80%;
+			height: 80px;
+			margin: 0 auto;
+			padding-top: 20px;
+		}
+		#container #progressLine div{
+			width:33%;
+			height: 80px;
+			background-color: #F4F4F4;
+			border: 1px solid #E6E6E6;
+			border-bottom: 0px;
+			float: left;
+			text-align: center;
+			line-height: 80px;
+			font-size: 20px;
+			font-weight: bold;
+			color: #939393;
+		}
+		#container #progressLine div:nth-child(1){
+			background-color: #fff;
+			color: #000;
+		}
+		#container #progressLine div span{
+			width:30px;
+			height: 30px;
+			margin: 25px;
+			background-color: #F0F0F0;
+			border-radius: 30px;
+			border: 2px solid #BFBDBD;
+			text-align: center;
+			line-height: 30px;
+			font-size: 20px;
+			font-weight: bold;
+			color: #939393;
+			display: block;
+			float: left;
+		}
+		#container #progressLine div:nth-child(1) span{
+			background-color: #21762B;
+			color: #fff;
+		}
+		#container #progressLineSmall{
+			width:80%;
+			height: 10px;
+			margin: 0 auto;
+		}
+		#container #progressLineSmall div{
+			width:33%;
+			height: 3px;
+			background-color: #fff;
+			border: 1px solid #fff;
+			float: left;
+		}
+		#container #progressLineSmall div:nth-child(1){
+			background-color: #FD541E;
+		}
+
+		#container #main{
+			width: 40%;
+			margin: 0 auto;
+		}
+		#container #main input[type="text"]{
+			width: 100%;
+			height: 60px;
+			margin: 10px auto;
+			border: 1px solid #DCDCDC;
+			border-radius: 5px;
+			padding-left: 10px;
+			font-family: "微软雅黑";
+			font-size: 20px;
+			color: #626262;
+		}
+		#container #main input[type="password"]{
+			width: 100%;
+			height: 60px;
+			margin: 10px auto;
+			border: 1px solid #DCDCDC;
+			border-radius: 5px;
+			padding-left: 10px;
+			font-family: "微软雅黑";
+			font-size: 20px;
+			color: #626262;
+		}
+		#container #main input[type="button"]{
+			width: 100%;
+			height: 60px;
+			margin: 0px auto;
+			border: 1px solid #DCDCDC;
+			background-color: #21762B;
+			font-family: "微软雅黑";
+			padding: 20px;
+			font-size: 20px;
+			color: #fff;
+		}
+		#container #main input:nth-child(1){margin-top: 30px;}
+
+		#bottom{
+			width:100%;
+			height: 70px;
+			background-color:#5B945B; 
+			line-height: 70px;
+			text-align: center;
+			color: #ddd;
+			font-size: 12px;
+		}
+
+		#main #usernamePrompt{
+			width: 100%;
+			height: 30px;
+			margin: 0px auto;
+			padding-left: 10px;
+			font-family: "微软雅黑";
+			font-size: 16px;
+			color: red;
+			display: none;
+		}
+
+		#main #psdPrompt{
+			width: 100%;
+			height: 30px;
+			margin: 0px auto;
+			padding-left: 10px;
+			font-family: "微软雅黑";
+			font-size: 16px;
+			text-align: center;
+			display: none;
+		}
+		#main #psdPrompt div{
+			width:33%;
+			background-color: #309500;
+			border-left:1px solid #F2F2F2;
+			float: left;
+		}
+		#main #psd2Prompt{
+			width: 100%;
+			height: 30px;
+			margin: 0px auto;
+			padding-left: 10px;
+			font-family: "微软雅黑";
+			font-size: 16px;
+			color: red;
+			display: none;
+		}
+
+		#container #confirmation{
+			width: 40%;
+			margin: 0px auto;
+			display: none;
+		}
+		#confirmation #time{
+			width:100%;
+			height: 50px;
+			line-height: 50px;
+			margin: 10px 0px;
+		}
+		#confirmation #time div{
+			background-color: green;
+			float: left;
+			font-size: 20px;
+			font-weight: bolder;
+			text-align: center;
+			color:#fff;
+		}
+		#confirmation #time div:nth-child(1){
+			width:60%;
+		}
+		#confirmation #time div:nth-child(2){
+			margin-left: 1%;
+			width:39%;
+		}
+		#confirmation input[type="text"]{
+			width: 98%;
+			height: 60px;
+			margin: 2% auto;
+			border: 1px solid #CACACA;
+			border-radius: 5px;
+			padding-left: 10px;
+			font-family: "微软雅黑";
+			font-size: 20px;
+			color: #626262;
+		}
+		#confirmation input[type="button"]{
+			width: 100%;
+			height: 60px;
+			margin: 10px auto;
+			margin-bottom: 30px;
+			border: 1px solid #DCDCDC;
+			background-color: #21762B;
+			font-family: "微软雅黑";
+			padding: 20px;
+			font-size: 20px;
+			color: #fff;
+		}
+
+		#success{
+			width: 40%;
+			margin:0px auto;
+			padding-top: 50px;
+			display: none;
+		}
+		#success div{
+			width:100%;
+			height: 50px;
+			line-height: 50px;
+			background-color: green;
+			font-size: 20px;
+			font-weight: bolder;
+			text-align: center;
+			color:#fff;
+		}
+	</style>
+</head>
+<body>
+	<div id="topLine"></div>
+	<div id="banner">
+		<div>Logo</div>
+		<div>注册账号</div>
+		<div id="goBack">回到首页</div>
+	</div>
+	<div id="container">
+		<div id="progressLine">
+			<div><span>1</span> 填写注册信息</div>
+			<div><span>2</span> 验证信息</div>
+			<div><span>3</span> 注册成功</div>
+		</div>
+		<div id="progressLineSmall">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<div id="main">
+			<input type="text" value="邮箱/手机号">
+			<div id="usernamePrompt"></div>
+			<input type="text" value="密码">
+			<div id="psdPrompt">
+				<div>保密等级“低”</div>
+				<div>保密等级“中”</div>
+				<div>保密等级“高”</div>
+			</div>
+			<input type="text" value="确认密码">
+			<div id="psd2Prompt"></div>
+			<input id="nextBtn1" type="button" value="下一步">
+		</div>
+		<div id="confirmation">
+			<div id="time">
+				<div>5</div>
+				<div>重新发送</div>
+			</div>
+			<input id="promptText" type="text">
+			<input id="nextBtn2" type="button" value="下一步">
+		</div>
+		<div id="success">
+			<div>注册成功！</div>
+		</div>
+	</div>
+	<div id="bottom">©2005-2016 XX市XXXX科技有限公司 版权所有 X ICP备00000000号-1</div>
+</body>
+<script>
+	var inputList=document.getElementById("main").getElementsByTagName("input");
+	inputList[0].onclick=function(){
+		this.value="";
+	}
+	var usernamePass=false;
+	var psdPass=false;
+	inputList[0].onblur=function(){
+		var noNum="0";
+		var usernamePrompt=document.getElementById("usernamePrompt");
+		if(this.value.length==0){
+			this.value="邮箱/手机号";
+			usernamePrompt.style.display="none";
+		}
+		else{
+			if(this.value.length<8){
+				usernamePrompt.style.display="block";
+				usernamePrompt.innerHTML="用户名需要8位以上";
+			}
+			else{
+				var str=this.value;
+				for(var i=0;i<str.length;i++){
+					if(str.substring(i,i+1)<"0"||str.substring(i,i+1)>"9"){
+						noNum="1";
+					}
+				}
+				if(noNum=="1"){
+					usernamePrompt.style.display="none";
+					usernamePass=true;
+				}
+				else{
+					usernamePrompt.style.display="block";
+					usernamePrompt.innerHTML="用户名需要包括数字以外的字符";
+				}
+			}
+		}
+	}
+	inputList[1].onclick=function(){
+		this.value="";
+		this.type="password";
+	}
+	var psdValue;
+	inputList[1].onblur=function(){
+		psdValue=this.value;
+		var psdBox=document.getElementById("psdPrompt");
+		var psdValueLength=this.value.length;
+		var psdBoxInnerDiv=psdBox.getElementsByTagName("div");
+		if(psdValueLength==0){
+			this.value="密码";
+			this.type="text";
+			psdBox.style.display="none";
+		}
+		else{
+			psdBox.style.display="block";
+			psdBoxInnerDiv[0].style.backgroundColor="green";
+			psdBoxInnerDiv[1].style.backgroundColor="green";
+			psdBoxInnerDiv[2].style.backgroundColor="green";
+			if(psdValueLength<=6){
+				psdBoxInnerDiv[0].style.backgroundColor="yellow";
+			}
+			else if(psdValueLength>6&&psdValueLength<=10){
+				psdBoxInnerDiv[1].style.backgroundColor="yellow";
+			}
+			else{
+				psdBoxInnerDiv[2].style.backgroundColor="yellow";
+			}
+		}
+	}
+	inputList[2].onclick=function(){
+		this.value="";
+		this.type="password";
+	}
+	inputList[2].onblur=function(){
+		var psd2Prompt=document.getElementById("psd2Prompt");
+		if(this.value.length==0){
+			this.value="确认密码";
+			this.type="text";
+			psd2Prompt.style.display="none"
+		}
+		else{
+			if(psdValue!=this.value){
+				psd2Prompt.style.display="block";
+				psd2Prompt.innerHTML="两次密码需要相同!";
+			}
+			else{
+				psd2Prompt.style.display="none";
+				psdPass=true;
+			}
+		}
+	}
+	var setIn;
+	document.getElementById("nextBtn1").onclick=function(){
+		if(usernamePass==false){
+			alert("请输入有效的用户名！");
+		}
+		else if(psdPass==false){
+			alert("两次密码不相同！");
+		}
+		else{
+			document.getElementById("main").style.display="none";
+			document.getElementById("confirmation").style.display="block";
+			var divLine=document.getElementById("progressLineSmall").getElementsByTagName("div");
+			for(var i=0;i<divLine.length;i++){
+				divLine[i].style.backgroundColor="#fff";
+			}
+			divLine[1].style.backgroundColor="#FD541E";
+			var divMainMenu=document.getElementById("progressLine").getElementsByTagName("div");
+			divMainMenu[0].style.backgroundColor="#F4F4F4";
+			divMainMenu[0].style.color="#939393";
+			divMainMenu[1].style.backgroundColor="#fff";
+			divMainMenu[1].style.color="#000";
+			divMainMenu[0].getElementsByTagName("span")[0].style.backgroundColor="#F0F0F0";
+			divMainMenu[0].getElementsByTagName("span")[0].style.color="#939393";
+			divMainMenu[1].getElementsByTagName("span")[0].style.backgroundColor="blue";
+			divMainMenu[1].getElementsByTagName("span")[0].style.color="#fff";
+			setIn=setInterval("timeGo()",1000);
+		}
+	}
+	var t=4;
+	var randomNum="";
+	function timeGo(){
+		randomNum="";
+		document.getElementById("time").getElementsByTagName("div")[0].innerHTML=t;
+		t--;
+		if(t==-1){
+			clearInterval(setIn);
+			for(var i=0;i<6;i++){
+				randomNum+=Math.floor(Math.random()*10);
+			}
+			alert(randomNum);
+		}
+	}
+	document.getElementById("time").getElementsByTagName("div")[1].onclick=function(){
+		t=4;
+		clearInterval(setIn);
+		setIn=setInterval("timeGo()",1000);
+	}
+	document.getElementById("nextBtn2").onclick=function(){
+		var inputText=document.getElementById("promptText").value;
+		if(inputText==randomNum){
+			document.getElementById("confirmation").style.display="none";
+			document.getElementById("success").style.display="block";
+			var divLine=document.getElementById("progressLineSmall").getElementsByTagName("div");
+			for(var i=0;i<divLine.length;i++){
+				divLine[i].style.backgroundColor="#fff";
+			}
+			divLine[2].style.backgroundColor="#FD541E";
+			var divMainMenu=document.getElementById("progressLine").getElementsByTagName("div");
+			divMainMenu[0].style.backgroundColor="#F4F4F4";
+			divMainMenu[0].style.color="#939393";
+			divMainMenu[1].style.backgroundColor="#fff";
+			divMainMenu[1].style.color="#000";
+			divMainMenu[0].getElementsByTagName("span")[0].style.backgroundColor="#F0F0F0";
+			divMainMenu[0].getElementsByTagName("span")[0].style.color="#939393";
+			divMainMenu[1].getElementsByTagName("span")[0].style.backgroundColor="#21762B";
+			divMainMenu[1].getElementsByTagName("span")[0].style.color="#fff";
+		}
+		else{
+			alert("输入的验证码不正确！");
+		}
+	}
+</script>
+</html>

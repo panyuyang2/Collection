@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{margin:0px;    padding:0px;    overflow-x: hidden;     background-color: #f9f9f9;}
+    #NBar{width: 100vw;    height: 10vh;}
+    #NBar div{float: right;    width: 5vw;    height: 10vh;    background-repeat: no-repeat;    background-position: center;    overflow: hidden;}
+    #NBar div:nth-child(1){margin-right:2vw;}
+    #NBar div:nth-child(2){background-image: url("../images/shop.png");}
+    #NBar a{float: right;    width: 5vw;    height: 10vh;    font-size:1.25em;    font-family: STFangsong;    font-weight: bold;    line-height: 10vh;    
+            text-align: center;    overflow: hidden;}
+    #NBar a:nth-child(3){float: left;    width: 20vw;    height: 10vh;    font-size:2.5em;    font-family:STKaiti;    font-weight: bold;    line-height: 10vh;    
+    margin-left: 4vw;    text-align: left;}
+    #NBar a:nth-child(4){color: #ffc348;}
+    .tiaoZhuan:link,.tiaoZhuan:visited{color: black;   text-decoration: none;}
+    .tiaoZhuan:link:active,.tiaoZhuan:visited:active{color: black;   text-decoration: none;}
+    #show{width: 100vw;     height: 90vh;}
+    #sLeft{width: 45vw;     height: 90vh;   background-color: #f0f0f0;  float: left;}
+    #sRight{width: 55vw;    height: 90vh;   background-color: #f7f7ff;  float: left;}
+    #pLogin{width: 45vw;     height: 90vh;  font-size: 5em;     font-family: STFangsong;    font-weight: bold;  text-align: center;
+    line-height: 90vh;  margin: 0px;} 
+    #oLogin{width: 55vw;    height: 40vh;   margin-top: 25vh;}
+    #uAss{width: 40vw;  height: 6vh;    border-radius: 90px;    margin-left: 7vw;   font-size: 1.4em;     font-family: STFangsong;  font-weight: bold;
+    color: #dbdbdb;     border: 1px solid #0a0a0a;}
+    #uInfo{position: absolute;  width: 11vw;    height: 5vh;    margin-left: 8.5vw;     display: none;}
+    #uInfo p{width: 11vw;    height: 5vh;   margin-top: 0vh;    color: red;}
+    #uInfo2{position: absolute;  width: 11vw;    height: 5vh;    margin-left: 8.5vw;     display: none;}
+    #uInfo2 p{width: 11vw;    height: 5vh;   margin-top: 0vh;    color: red;}
+    #psd{width: 40vw;  height: 6vh;    border-radius: 90px;    margin-left: 7vw;   font-size: 1.4em;     font-family: STFangsong;  font-weight: bold;
+    color: #dbdbdb;     border: 1px solid #0a0a0a;      margin-top: 5vh;}
+    #pInfo{position: absolute;  width: 11vw;    height: 5vh;    margin-left: 8.5vw;     display: none;}
+    #pInfo p{width: 11vw;    height: 5vh;   margin-top: 0vh;    color: red;}
+    #pInfo2{position: absolute;  width: 11vw;    height: 5vh;    margin-left: 8.5vw;     display: none;}
+    #pInfo2 p{width: 11vw;    height: 5vh;   margin-top: 0vh;    color: red;}
+    #btn{width: 10vw;  height: 6vh;    border-radius: 90px 0px 90px 90px;    margin-left: 7vw;   font-size: 1.6em;     font-family: Fangsong;  font-weight: bold;
+    color: white;     border: 1px solid #0a0a0a;      margin-top: 5vh;    background-color: black;}
+    #lInfo{width: 10vw; height: 6vh;    float: right;   margin-right:27vw;     margin-top: 5vh;}
+    #fPsd{width: 10vh;  height: 3vh;}
+    #fPsd a{width: 10vh;  height: 3vh;  font-size: 1em;     font-family: Fangsong;}
+    #fPsd a:link,#fPsd a:visited{color:black}
+    #reg{width: 10vw;   height: 3vh;}
+    #rNote{width: 4vw;    height: 3vh;  float: left;}
+    #rNote p{width: 6vw;    height: 3vh;    font-size: 1em;     font-family: Fangsong;      color: #7d7d7d;     margin-top: 0vh;}
+    #rIn{width: 4vw;    height: 3vh;    float: left;}
+    #rIn a{width: 4vw;    height: 3vh;      font-size: 1em;     font-family: Fangsong;}
+    #rIn a:link,#rIn a:visited{color:black}
+</style>
+<body>
+    <div id="NBar">
+        <div id="searchBtn"></div>
+        <div></div>
+        <a class="tiaoZhuan" href="../index.html">好物</a>
+        <a class="tiaoZhuan" href="login.html">登录</a>
+        <a>购物车</a>
+        <a>客服</a>
+        <a class="tiaoZhuan" href="select.html">分类</a>
+    </div>
+    <div id="show">
+        <div id="sLeft">
+            <p id="pLogin">用户登录</p>
+        </div>
+        <div id="sRight">
+            <form id="oLogin">
+                <input id="uAss" type="text"  value="    用户名">
+                <div id="uInfo"><p>请输入用户名</p></div>
+                <div id="uInfo2"><p>用户不存在</p></div>
+                <input id="psd" type="text"  value="    密码">
+                <div id="pInfo"><p>请输入密码</p></div>
+                <div id="pInfo2"><p>密码错误</p></div>
+                <input id="btn" type="button" value="登录">
+                <div id="lInfo">
+                    <div id="fPsd"><a href="#">忘记密码？</a></div>
+                    <div id="reg">
+                        <div id="rNote"><p>新用户？</p></div>
+                        <div id="rIn"><a href="#">注册</a></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    var uAss=document.getElementById("uAss");
+    var psd=document.getElementById("psd");
+    var btn=document.getElementById("btn");
+    uAss.addEventListener("focus",uFocus);
+    uAss.addEventListener("blur",uBlur);
+    function uFocus(){
+        if(uAss.value=="    用户名"){
+            uAss.value="";
+        }
+        uInfo.style.display="none";
+        uInfo2.style.display="none";
+    }
+    function uBlur(){
+        if(uAss.value==""){
+            uAss.value="    用户名";
+        }
+    }
+    psd.addEventListener("focus",pFocus);
+    psd.addEventListener("blur",pBlur);
+    function pFocus(){
+        if(psd.value=="    密码"){
+            psd.type="password";
+            psd.value="";
+        }
+        pInfo.style.display="none";
+        pInfo2.style.display="none";
+    }
+    function pBlur(){
+        if(psd.value==""){
+            psd.type="text";
+            psd.value="    密码";
+        }
+    }
+    var eAss="admin"
+    var ePsd="123456"
+    var uInfo=document.getElementById("uInfo");
+    var uInfo2=document.getElementById("uInfo2");
+    var pInfo=document.getElementById("pInfo");
+    var pInfo2=document.getElementById("pInfo2");
+    btn.addEventListener("click",bClick);
+    function bClick(){
+        if(uAss.value==""||uAss.value=="    用户名"){
+            uInfo.style.display="block";
+        }
+        else if(uAss.value!=eAss){
+            uInfo2.style.display="block";
+        }
+        else{
+            if(psd.value==""||psd.value=="    密码"){
+                pInfo.style.display="block";
+            }
+            else if(psd.value!=ePsd){
+                pInfo2.style.display="block";
+                psd.type="text";
+                psd.value="    密码";
+            }
+            else{
+                alert("欢迎,admin")
+                location.reload();
+            }
+        }
+    }
+</script>
+</html>
